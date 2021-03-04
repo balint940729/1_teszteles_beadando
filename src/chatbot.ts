@@ -3,19 +3,21 @@ export class ChatBot{
 
     public greet(names: string[]): string{
         let sentence:string;
-        if (names.length < 1) {
-            return "Hello, my friend.";
-        }
+
         if (names.length > 1) {
-            let i:number = 0;
             sentence = "Hello, ";
-            while (i<names.length-1) {
+            for(let i=0; i < names.length; i++){
+                if (i === names.length-1){
+                    return sentence += "and " + names[i] + ".";
+                }
                 sentence += names[i] + ", ";
-                i++;
             }
-            sentence += "and " + names[names.length-1] + ".";
-            return sentence;
         }
-        return "Hello, " + names + ".";
+
+        if (names.length === 1) {
+            return "Hello, " + names + ".";
+        }
+
+        return "Hello, my friend.";
     }
 }
