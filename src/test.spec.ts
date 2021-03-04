@@ -29,8 +29,13 @@ describe('Chatbot SHOUT to the people', function () {
   it('should SHOUT to one person', function () {
     expect(chatBot.greet(['BOB'])).toEqual("HELLO BOB!");
   });
+
+  it('should SHOUT to multiple people', function () {
+    expect(chatBot.greet(['BOB', 'ALEX'])).toEqual("HELLO BOB, AND ALEX!");
+  });
   
   it('should greet or shout to multiple peoples', function () {
-    expect(chatBot.greet(['Bob', 'ALEX', 'Henry'])).toEqual("Hello, Bob, and Henry. HELLO ALEX!");
+    expect(chatBot.greet(['Bob', 'ALEX', 'Henry'])).toEqual("Hello, Bob, and Henry. AND HELLO ALEX!");
+    expect(chatBot.greet(['Bob', 'ALEX', 'HENRY'])).toEqual("Hello, Bob. AND HELLO ALEX, AND HENRY!");
   });
 });
