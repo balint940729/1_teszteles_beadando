@@ -1,0 +1,19 @@
++---------------------+-----------------------------+
+|        Inputs       |           Results           | 
++---------------------+-----------------------------+
+|         ""          |      Hello, my friend.      |
+|        "Bob"        |         Hello, Bob.         | 
+|"Bob" "Alex" "Henry" | Hello, Bob, Alex and Henry. | 
++---------------------+-----------------------------+
+|        "BOB"        |         HELLO BOB!          | 
+| "Bob" "ALEX" "Henry"|     Hello, Bob and Henry.   |
+|                     |       AND HELLO ALEX!       | 
++---------------------+-----------------------------+
+| "Bob","Alex, Henry" | Hello, Bob, Alex and Henry. |
++---------------------+-----------------------------+
+
+TODO
+
+CURRENT
+
+DONE

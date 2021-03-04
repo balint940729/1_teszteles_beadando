@@ -1,7 +1,8 @@
-describe('Example', function () {
+describe('Chatbot greet people', function () {
 
-  it('should work', function () {
-    expect(true).toBe(true);
+  it('should greet the person', function () {
+    const chatBot = new ChatBot();
+    expect(chatBot.greet("Bob")).toBe("Hello, Bob.");
   });
 
 });
