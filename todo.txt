@@ -13,10 +13,10 @@
 +---------------------+-----------------------------+
 
 TODO
-- greet without input
 - greet with multiple input
 
 CURRENT
+- greet without input
 
 DONE
 - greet with single input
