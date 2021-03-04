@@ -1,7 +1,7 @@
 export class ChatBot{
     constructor(){}
 
-    public greet(name: string): string{
-        return "Hello, " + name + ".";
+    public greet(names: string[]): string{
+        return "Hello, " + names + ".";
     }
 }

@@ -17,6 +17,6 @@ TODO
 - greet with multiple input
 
 CURRENT
-- greet with single input
 
 DONE
+- greet with single input
