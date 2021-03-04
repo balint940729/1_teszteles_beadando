@@ -13,12 +13,12 @@
 +---------------------+-----------------------------+
 
 TODO
-- shout to multiple people in mixed input
-- greet to multiple people in mixed input
+
 CURRENT
-- shout to a single person
+- greet or shout to multiple people in mixed input
 
 DONE
 - greet with single input
 - greet without input
 - greet with multiple input
+- shout to a single person
