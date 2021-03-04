@@ -15,6 +15,8 @@ export class ChatBot{
         }
 
         if (names.length === 1) {
+            if (names[0] === names[0].toUpperCase()) 
+                return "HELLO " + names + "!";
             return "Hello, " + names + ".";
         }
 

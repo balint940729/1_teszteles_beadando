@@ -2,7 +2,7 @@ import {ChatBot} from './chatbot';
 
 describe('Chatbot greet people', function () {
   let chatBot: ChatBot;
-  beforeEach(()=>{
+  beforeAll(()=>{
     chatBot = new ChatBot();
   })
 
@@ -20,7 +20,7 @@ describe('Chatbot greet people', function () {
 });
 describe('Chatbot SHOUT to the people', function () {
   let chatBot: ChatBot;
-  beforeEach(()=>{
+  beforeAll(()=>{
     chatBot = new ChatBot();
   })
 
