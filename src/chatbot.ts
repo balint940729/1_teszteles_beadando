@@ -6,17 +6,19 @@ export class ChatBot{
         let sentence2:string = "HELLO ";
         let upper: string[] = [];
         let lower: string[] = [];
-        let both, shout, normal: boolean = false;
+        let shout, normal: boolean = false;
 
+        // Ha csak egy nevet kapunk inputként
         if (names.length === 1) {
             if (names[0] === names[0].toUpperCase()) 
                 return "HELLO " + names + "!";
             return "Hello, " + names + ".";
         }
 
+        // Ha több nevet kapunk inputként
         if (names.length > 1){
 
-            // Szétbontom két csoportra a neveket nagy/kis-re
+            // Felbontom két csoportra a neveket nagy/kis-re
             for(let i=0; i < names.length; i++){
                 if(names[i] === names[i].toUpperCase()){
                     shout = true;
@@ -27,53 +29,49 @@ export class ChatBot{
                 lower.push(names[i]);
             }
 
-            // Ha van legalabb 1-1 név mindkettőnel akkor
-            if (shout && normal) {
-                both = true;
+            // Ha van legalabb 1-1 név mindkettőnel
+            if (shout && normal) 
                 sentence2 = " AND HELLO ";
-            }
 
-            if (normal && lower.length > 1){
-                for(let i=0; i < lower.length; i++){
-                    if(i === lower.length-1){
-                        sentence += "and " + lower[i] + ".";
-                        break;
-                    }
-                    sentence += lower[i] + ", ";
-                }
-            }
+            // Kisbetűs inputok üdvözlések 
+            if (normal && lower.length > 1)
+                sentence = this.mondat(lower, sentence) + ".";
 
-            if (normal && lower.length === 1){
+            if (normal && lower.length === 1)
                 sentence += lower + ".";
-            }
 
-            if (shout && upper.length > 1){
-                for(let i=0; i < upper.length; i++){
-                    if(i === upper.length-1){
-                        sentence2 += "AND " + upper[i] + "!";
-                        break;
-                    }
-                    sentence2 += upper[i] + ", ";
-                }
-            }
+            // Nagybetűs inputok üdvözlése
+            if (shout && upper.length > 1)
+                sentence2 = this.mondat(upper, sentence2).toUpperCase() + "!";
 
-            if (shout && upper.length === 1){
+            if (shout && upper.length === 1)
                 sentence2 += upper + "!";
-            }
 
-            if (both){
-                return sentence + sentence2;
-            }
+            // Ha csak kisbetűs inputok vannak
+            if (normal && !shout)
+                return sentence;
 
-            if (shout && !normal){
+            // Ha csak nagybetűs inputok vannak
+            if (shout && !normal)
                 return sentence2;
-            }
 
-            return sentence;
-
+            // Ha mindkettő inputból van
+            return sentence + sentence2;
         }
 
         return "Hello, my friend.";
+    }
+
+    // Létrehozza a mondatokat 
+    private mondat(words: string[], sentence: string): string{
+        for(let i=0; i < words.length; i++){
+            if(i === words.length-1){
+                sentence += "and " + words[i];
+                break;
+            }
+            sentence += words[i] + ", ";
+        }
+        return sentence;
     }
 
 }
