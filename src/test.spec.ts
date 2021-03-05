@@ -39,4 +39,17 @@ describe('Chatbot SHOUT to the people', function () {
     expect(chatBot.greet(['Bob', 'ALEX', 'HENRY'])).toEqual("Hello, Bob. AND HELLO ALEX, AND HENRY!");
     expect(chatBot.greet(['Bob', 'ALEX', 'HENRY', 'Lisa'])).toEqual("Hello, Bob, and Lisa. AND HELLO ALEX, AND HENRY!");
   });
+
+  describe('Chatbot separate the inputs and greet properly', function () {
+    let chatBot: ChatBot;
+    beforeAll(()=>{
+      chatBot = new ChatBot();
+    })
+  
+    it('should separate and greet people', function () {
+      expect(chatBot.greet(['Bob, Alex'])).toEqual("Hello, Bob, and Alex.");
+      expect(chatBot.greet(['Bob, Alex', 'Henry'])).toEqual("Hello, Bob, Alex, and Henry.");
+    });
+  });
+  
 });
