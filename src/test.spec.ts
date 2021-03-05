@@ -57,4 +57,11 @@ describe('Chatbot separate the inputs and greet properly', function () {
     expect(chatBot.greet(['Bob', 'ALEX, HENRY'])).toEqual("Hello, Bob. AND HELLO ALEX, AND HENRY!");
     expect(chatBot.greet(['BOB', 'ALEX, HENRY'])).toEqual("HELLO BOB, ALEX, AND HENRY!");
   });
+
+  it('should separate and shout to people in mixed inputs', function () {
+    expect(chatBot.greet(['Bob, ALEX'])).toEqual("Hello, Bob. AND HELLO ALEX!");
+    expect(chatBot.greet(['Bob', 'ALEX, HENRY', 'Julia, Romeo'])).toEqual("Hello, Bob, Julia, and Romeo. AND HELLO ALEX, AND HENRY!");
+    expect(chatBot.greet(['Bob', 'ALEX, HENRY', 'Julia, Romeo', 'TERRY'])).toEqual("Hello, Bob, Julia, and Romeo. AND HELLO ALEX, HENRY, AND TERRY!");
+    expect(chatBot.greet(['Bob', 'ALEX, Henry', 'Julia, ROMEO'])).toEqual("Hello, Bob, Henry, and Julia. AND HELLO ALEX, AND ROMEO!");
+  });
 });
