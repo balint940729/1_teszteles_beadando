@@ -1,20 +1,19 @@
 export class ChatBot{
     constructor(){}
 
-    public greet(namese: string[]): string{
+    public greet(inputs: string[]): string{
         let sentence:string = "Hello, ";
         let sentence2:string = "HELLO ";
         let upper: string[] = [];
         let lower: string[] = [];
         let names: string[] = [];
-        let s: string[] = [];
         let shout, normal: boolean = false;
 
         // Ha több nevet kapunk inputként
-        if (namese.length >= 1){
+        if (inputs.length >= 1){
 
-            for(let i=0; i < namese.length; i++){
-                s = namese[i].split(',');
+            for(let i=0; i < inputs.length; i++){
+                let s = inputs[i].split(',');
                 for(let i=0; i < s.length; i++){
                     names.push(s[i].trim());
                 }
