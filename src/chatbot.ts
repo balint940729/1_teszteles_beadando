@@ -1,22 +1,24 @@
 export class ChatBot{
     constructor(){}
 
-    public greet(names: string[]): string{
+    public greet(namese: string[]): string{
         let sentence:string = "Hello, ";
         let sentence2:string = "HELLO ";
         let upper: string[] = [];
         let lower: string[] = [];
+        let names: string[] = [];
+        let s: string[] = [];
         let shout, normal: boolean = false;
 
-        // Ha csak egy nevet kapunk inputként
-        if (names.length === 1) {
-            if (names[0] === names[0].toUpperCase()) 
-                return "HELLO " + names + "!";
-            return "Hello, " + names + ".";
-        }
-
         // Ha több nevet kapunk inputként
-        if (names.length > 1){
+        if (namese.length >= 1){
+
+            for(let i=0; i < namese.length; i++){
+                s = namese[i].split(',');
+                for(let i=0; i < s.length; i++){
+                    names.push(s[i].trim());
+                }
+            }
 
             // Felbontom két csoportra a neveket nagy/kis-re
             for(let i=0; i < names.length; i++){
