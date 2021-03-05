@@ -12,25 +12,27 @@ export class ChatBot{
         // Ha több nevet kapunk inputként
         if (inputs.length >= 1){
 
-            for(let i=0; i < inputs.length; i++){
-                let s = inputs[i].split(',');
+            // Szétválasszuk vesszők mentén az inputot
+            inputs.forEach(item => {
+                let s = item.split(',');
                 for(let i=0; i < s.length; i++){
                     names.push(s[i].trim());
                 }
-            }
+            });
 
             // Felbontom két csoportra a neveket nagy/kis-re
-            for(let i=0; i < names.length; i++){
-                if(names[i] === names[i].toUpperCase()){
+            names.forEach(name => {
+                if(name === name.toUpperCase()){
                     shout = true;
-                    upper.push(names[i]);
-                    continue;
+                    upper.push(name);
                 }
-                normal = true;
-                lower.push(names[i]);
-            }
+                else{
+                    normal = true;
+                    lower.push(name);
+                }
+            });
 
-            // Ha van legalabb 1-1 név mindkettőnel
+            // Ha van legalabb 1-1 név mindkettőnel, akkor átalakítom nagybetűset
             if (shout && normal) 
                 sentence2 = " AND HELLO ";
 

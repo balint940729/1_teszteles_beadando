@@ -13,11 +13,9 @@
 +---------------------+-----------------------------+
 
 TODO
-- separate and shout people
-- properly greet people in mixed input
 
 CURRENT
-- separate and greet people
+
 
 DONE
 - greet with single input
@@ -25,3 +23,6 @@ DONE
 - greet with multiple input
 - shout to a single person
 - greet or shout to multiple people in mixed input
+- separate and greet people
+- separate and shout people
+- properly greet people in mixed input
